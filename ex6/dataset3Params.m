@@ -29,7 +29,7 @@ min_i = 0;
 min_j = 0;
 for i = 1:length(tbd)
   for j = 1:length(tbd)
-    model = svmTrain(X, Y, tbd(i), @(x1, x2) gaussianKernel(x1, x2, tbd(j)));
+    model = svmTrain(X, y, tbd(i), @(x1, x2) gaussianKernel(x1, x2, tbd(j)));
     predications = svmPredict(model, Xval);
     cost = mean(double(predications ~= yval));
     if (cost < min_cost)
